@@ -481,36 +481,7 @@ img {
     line-height: 1.4;
     font-style: italic;
 }
-
-
-/* =======================================================
-   10. RESPONSIVE MOBILE (Pour tout le site)
-   ======================================================= */
-@media (max-width: 768px) {
-    /* --- Accueil --- */
-    .header { padding: 15px 20px; }
-    .navbar { display: none; } /* Menu caché sur mobile */
-    .hero-title { font-size: 15vw; padding-top: 80px; }
-    .hero-img-main img { height: 400px; }
-    .hero-img-small { width: 180px; height: 120px; left: 20px; bottom: -40px; }
-    .about { padding-top: 80px; }
-    .about-content { flex-direction: column; gap: 30px; }
-    .big-text-bg { font-size: 22vw; }
-    .projects { padding: 60px 20px; }
-    .gold-title { font-size: 2.5rem; }
-    .gallery-grid { grid-template-columns: 1fr; }
-    .contact-container { flex-direction: column; gap: 40px; }
-    .visit-card { position: relative; bottom: 0; left: 0; width: 100%; margin-top: -50px; padding: 30px; }
-
-    /* --- Page Projet --- */
-    .project-title { font-size: 3rem; }
-    .photo-grid-container {
-        padding: 0 20px 60px;
-        /* Sur mobile, on passe à 2 colonnes au lieu de 4 */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 10px;
-    }
-    /* =========================
+ /* =========================
    ANIMATIONS
    ========================= */
 
@@ -546,6 +517,35 @@ img {
     100% {
         transform: scale(1);
     }
+
+/* =======================================================
+   10. RESPONSIVE MOBILE (Pour tout le site)
+   ======================================================= */
+@media (max-width: 768px) {
+    /* --- Accueil --- */
+    .header { padding: 15px 20px; }
+    .navbar { display: none; } /* Menu caché sur mobile */
+    .hero-title { font-size: 15vw; padding-top: 80px; }
+    .hero-img-main img { height: 400px; }
+    .hero-img-small { width: 180px; height: 120px; left: 20px; bottom: -40px; }
+    .about { padding-top: 80px; }
+    .about-content { flex-direction: column; gap: 30px; }
+    .big-text-bg { font-size: 22vw; }
+    .projects { padding: 60px 20px; }
+    .gold-title { font-size: 2.5rem; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .contact-container { flex-direction: column; gap: 40px; }
+    .visit-card { position: relative; bottom: 0; left: 0; width: 100%; margin-top: -50px; padding: 30px; }
+
+    /* --- Page Projet --- */
+    .project-title { font-size: 3rem; }
+    .photo-grid-container {
+        padding: 0 20px 60px;
+        /* Sur mobile, on passe à 2 colonnes au lieu de 4 */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+   
 }
 
 .gallery-item img {
