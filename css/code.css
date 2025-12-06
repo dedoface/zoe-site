@@ -87,6 +87,42 @@ img {
     font-size: 1.1rem;
 }
 
+/* --- 3.5 MENU BURGER (CSS-ONLY) --- */
+
+/* Cache la checkbox sur tous les écrans (clé de l'interactivité) */
+.menu-toggle-checkbox {
+    display: none; 
+}
+
+/* Cacher la version mobile des socials sur grand écran */
+.mobile-socials {
+    display: none; 
+}
+
+/* Icône Burger (cachée par défaut sur grand écran) */
+.menu-toggle {
+    display: none; /* Caché par défaut sur grand écran */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 1001; 
+    order: 2; /* Pour aligner correctement dans le header flex */
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold-text); /* Couleur or/blanc */
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
 /* --- 4. HERO SECTION (ACCUEIL) --- */
 .hero {
     text-align: center;
@@ -487,9 +523,70 @@ img {
    10. RESPONSIVE MOBILE (Pour tout le site)
    ======================================================= */
 @media (max-width: 768px) {
-    /* --- Accueil --- */
+    /* --- Styles du Menu Burger et NAV Mobile --- */
+    
+    /* 1. Affichage de l'icône burger */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 2. Style de la NAV (Menu Mobile) */
+    .header .navbar {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark-brown); 
+        z-index: 999; 
+        padding-top: 100px;
+        align-items: center;
+        justify-content: flex-start;
+        /* Le menu est initialement caché hors de l'écran */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .header .navbar a {
+        font-size: 2rem;
+        padding: 15px 0;
+    }
+
+    /* 3. Masquer les socials de bureau et afficher les socials mobiles */
+    .header .socials {
+        display: none; /* Cache les socials de bureau */
+    }
+    .mobile-socials {
+        display: flex; /* Affiche les socials dans le menu mobile */
+        margin-top: 30px;
+        gap: 20px;
+        font-size: 1.5rem;
+    }
+
+    /* 4. LOGIQUE D'OUVERTURE CSS-ONLY */
+
+    /* OUVERTURE DU MENU : Le sélecteur "~" (frère) cible la nav pour la faire glisser */
+    .menu-toggle-checkbox:checked ~ .menu-toggle + .navbar {
+        transform: translateX(0); 
+    }
+    
+    /* ANIMATION EN CROIX DU BOUTON BURGER */
+    .menu-toggle-checkbox:checked ~ .menu-toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle-checkbox:checked ~ .menu-toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* --- Accueil (Styles conservés) --- */
     .header { padding: 15px 20px; }
-    .navbar { display: none; } /* Menu caché sur mobile */
     .hero-title { font-size: 15vw; padding-top: 80px; }
     .hero-img-main img { height: 400px; }
     .hero-img-small { width: 180px; height: 120px; left: 20px; bottom: -40px; }
@@ -502,7 +599,7 @@ img {
     .contact-container { flex-direction: column; gap: 40px; }
     .visit-card { position: relative; bottom: 0; left: 0; width: 100%; margin-top: -50px; padding: 30px; }
 
-    /* --- Page Projet --- */
+    /* --- Page Projet (Styles conservés) --- */
     .project-title { font-size: 3rem; }
     .photo-grid-container {
         padding: 0 20px 60px;
