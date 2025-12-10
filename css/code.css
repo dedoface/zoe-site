@@ -345,7 +345,7 @@ img {
 
 .visit-map-container {
     position: relative;
-   /*height: 600px;*/
+   height: 600px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -529,6 +529,12 @@ img {
     .menu-toggle {
         display: block;
     }
+    .visit-map-container {
+
+   height: auto;
+   
+}
+
 
     /* 2. Style de la NAV (Menu Mobile) */
     .header .navbar {
