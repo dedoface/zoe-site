@@ -345,7 +345,7 @@ img {
 
 .visit-map-container {
     position: relative;
-    height: 600px;
+   /*height: 600px;*/
     max-width: 1200px;
     margin: 0 auto;
 }
